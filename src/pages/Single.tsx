@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Grid, Hidden } from "@mui/material";
+import { Grid } from "@mui/material";
 
 function Single() {
   const { id } = useParams();
