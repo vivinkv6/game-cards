@@ -29,9 +29,9 @@ export default function Cards(props: CardsProps) {
             display: "flex",
             flexDirection: "row",
             flexWrap: "wrap",
-            bgcolor: "darkgray",
+            bgcolor: "#969696",
             marginTop: "4rem",
-            boxShadow: "5px 5px 50px black",
+            boxShadow: "5px 5px 50px #737373",
             borderRadius: "5px",
           }}
           key={props.list.id}
@@ -76,11 +76,23 @@ export default function Cards(props: CardsProps) {
               </Typography>
               <Typography
                 variant="subtitle1"
-                style={{ color: "#737373", margin: "10px" }}
+                style={{ color: "#737373", marginTop: "30px" }}
                 component="div"
               >
                 {props.list.genres.map((value) => {
-                  return value.name + " ";
+                  return (
+                    <i
+                      style={{
+                        color: "#ffffff",
+                        backgroundColor: "#916060",
+                        borderRadius: "30px",
+                        padding: "10px",
+                        margin: "10px",
+                      }}
+                    >
+                      {value.name}{" "}
+                    </i>
+                  );
                 })}
               </Typography>
             </CardContent>

@@ -25,8 +25,7 @@ function HomePage() {
     fetchData();
   }, [pages]);
   return (
-    <>
-      <div style={{ fontFamily: "sans-serif", fontWeight: "bolder" }}>Home</div>
+    <div style={{ backgroundColor: "#1a1a1a" }}>
       {data?.map((value) => {
         return (
           <Link to={`/${value.id}`} style={{ textDecoration: "none" }}>
@@ -38,7 +37,6 @@ function HomePage() {
         <Button
           style={{ color: "white", backgroundColor: "#2171c2" }}
           onClick={() => {
-            // setPages((pages<1) ? 1 : pages-1)
             if (pages <= 1) {
               setPages(1);
             } else {
@@ -59,7 +57,7 @@ function HomePage() {
           Next
         </Button>
       </center>
-    </>
+    </div>
   );
 }
 

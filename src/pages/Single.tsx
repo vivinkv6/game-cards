@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import { Grid, Hidden } from "@mui/material";
 
 function Single() {
   const { id } = useParams();
@@ -42,10 +43,13 @@ function Single() {
 
   return (
     <>
-      <div className="banner">
+      <div className="banner" style={{ backgroundColor: "#1a1a1a" }}>
         <div className="img">
           <CardMedia
-            style={{ width: "100%" }}
+            style={{
+              width: "100%",
+              backgroundImage: `url(${data?.background_image_additional})`,
+            }}
             component="img"
             sx={{ width: 150 }}
             image={data?.background_image_additional}
@@ -56,22 +60,23 @@ function Single() {
             style={{
               fontWeight: "bolder",
               fontFamily: "serif",
-              color: "black",
+              fontSize: "50px",
+              color: "#a6a6a6",
               marginBottom: "30px",
-              marginTop: "20px",
+              marginTop: "5%",
               marginLeft: "7px",
               lineHeight: "30px",
             }}
           >
-            Description:
+            Description
           </Typography>
           <Typography
             component="p"
             style={{
               fontWeight: "bolder",
-              fontFamily: 'monospace',
-              fontSize:'20px',
-              color: "black",
+              fontFamily: "monospace",
+              fontSize: "20px",
+              color: "#757574",
               margin: "10px",
               lineHeight: "30px",
             }}
@@ -84,26 +89,36 @@ function Single() {
             style={{
               fontWeight: "bolder",
               fontFamily: "serif",
-              color: "black",
-              marginBottom: "30px",
-              marginTop: "20px",
+              fontSize: "50px",
+              color: "#a6a6a6",
+              marginBottom: "50px",
+              marginTop: "5%",
               marginLeft: "7px",
               lineHeight: "30px",
             }}
           >
-            Gallery:
+            Gallery
           </Typography>
-          {img.map((value) => {
-            return (
-              <CardMedia
-                style={{ width: "100%", margin: "10px" }}
-                component="img"
-                sx={{ width: 150 }}
-                key={value.id}
-                image={value.image}
-              />
-            );
-          })}
+          <Grid
+            container
+            spacing={3}
+            overflow={"hidden"}
+            justifyContent={"space-around"}
+          >
+            {img.map((value) => {
+              return (
+                <Grid item md={4}>
+                  <CardMedia
+                    style={{ width: "100%" }}
+                    component="img"
+                    sx={{ width: 150 }}
+                    key={value.id}
+                    image={value.image}
+                  />
+                </Grid>
+              );
+            })}
+          </Grid>
         </div>
       </div>
     </>
