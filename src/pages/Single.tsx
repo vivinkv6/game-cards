@@ -44,32 +44,17 @@ function Single() {
   return (
     <>
       <div className="banner" style={{ backgroundColor: "#1a1a1a" }}>
-        <div className="img">
+        <div className="img" >
           <CardMedia
             style={{
               width: "100%",
-              backgroundImage: `url(${data?.background_image_additional})`,
+              marginTop:'55px'
             }}
             component="img"
             sx={{ width: 150 }}
             image={data?.background_image_additional}
           />
-          <Typography
-            component="h3"
-            variant="h3"
-            style={{
-              fontWeight: "bolder",
-              fontFamily: "serif",
-              fontSize: "50px",
-              color: "#a6a6a6",
-              marginBottom: "30px",
-              marginTop: "5%",
-              marginLeft: "7px",
-              lineHeight: "30px",
-            }}
-          >
-            Description
-          </Typography>
+          
           <Typography
             component="p"
             style={{
