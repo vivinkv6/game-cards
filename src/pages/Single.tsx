@@ -9,6 +9,7 @@ function Single() {
   const [data, setData] = useState<{
     background_image_additional: string;
     description_raw: string;
+    name:string;
   }>();
   const [img, setImg] = useState<{ image: string; id: number }[]>([]);
   useEffect(() => {
@@ -54,7 +55,21 @@ function Single() {
             sx={{ width: 150 }}
             image={data?.background_image_additional}
           />
-          
+           <Typography
+            component="h2"
+            style={{
+              fontWeight: "bolder",
+              fontFamily: "monospace",
+              fontSize: "40px",
+              color: "#757574",
+              marginTop: "20px",
+              marginBottom: "20px",
+              marginLeft:'10px',
+              lineHeight: "30px",
+            }}
+          >
+            {data?.name}
+          </Typography>
           <Typography
             component="p"
             style={{

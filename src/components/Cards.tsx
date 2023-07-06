@@ -76,7 +76,7 @@ export default function Cards(props: CardsProps) {
               </Typography>
               <Typography
                 variant="subtitle1"
-                style={{ color: "#737373", marginTop: "30px" }}
+                style={{ color: "#737373", marginTop: "30px",display:'flex',flexWrap:'wrap' }}
                 component="div"
               >
                 {props.list.genres.map((value) => {
@@ -87,7 +87,8 @@ export default function Cards(props: CardsProps) {
                         backgroundColor: "#916060",
                         borderRadius: "30px",
                         padding: "10px",
-                        margin: "10px",
+                        margin:'10px',
+                        
                       }}
                     >
                       {value.name}{" "}
