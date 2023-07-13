@@ -1,132 +1,142 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import AdbIcon from "@mui/icons-material/Adb";
+import { Link } from "react-router-dom";
 
-interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window?: () => Window;
-}
 
-const drawerWidth:number = 240;
-// const navItems = ['Home', 'Plaform', 'Category'];
+function NavBar() {
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
 
-const navItems2:{key:number,page:string,link:string}[]=[{
-    key:1,
-    page:'Home',
-    link:'/'
-},
-{
-    key:2,
-    page:'Platform',
-    link:'platform'
-},
-{
-    key:3,
-    page:'Category',
-    link:'category'
-}
-]
 
-export default function NavBa(props: Props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
   };
 
-  const drawer = (
-    <Box onClick={handleDrawerToggle} >
-      <Typography variant="h6" sx={{ my: 2,mx:2 }}>
-        GAME CARDS
-      </Typography>
-      <Divider />
-      <List>
-        {navItems2.map((item) => (
-          <ListItem key={item.key} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-                <a href={item.link}>
-                <ListItemText primary={item.page}/>
-                </a>
-            
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar component="nav" style={{backgroundColor:'#2b2b2b',color:'#a3a2a0'}}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            
-            <MenuIcon />
-          </IconButton>
+    <AppBar style={{backgroundColor:'#303030'}}>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+        <img src="https://cdn4.vectorstock.com/i/1000x1000/63/08/ninja-gaming-joystick-sport-logo-icon-vector-34196308.jpg" width={50} height={50} style={{marginRight:'10px',borderRadius:'50px'}} alt="" />
           <Typography
-            variant="h4"
-            component="h4"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          textAlign={'left'}
-          fontWeight={700}
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
           >
-            GAME CARDS
+            Game Cards
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems2.map((item) => (
-               
-              <Button key={item.key} href={`${item.link}`} sx={{ color: '#fff' }}>
-            {/*    */}
-           {item.page}
-              </Button>
-             
-            ))}
+
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: "block", md: "none" },
+              }}
+            >
+              <MenuItem onClick={handleCloseNavMenu}>
+               <Typography textAlign="center">Category</Typography>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+               <Typography textAlign="center">Platform</Typography>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+               <Typography textAlign="center">Search</Typography>
+              </MenuItem>
+            </Menu>
+          </Box>
+          
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href=""
+            sx={{
+              mr: 2,
+              display: { xs: "flex", md: "none" },
+              flexGrow: 1,
+              position:'absolute',
+              left:'7rem',
+              fontFamily: "monospace",
+              fontWeight: "bold",
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            Game Cards
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Category
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Platform
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Search
+            </Button>
           </Box>
         </Toolbar>
-      </AppBar>
-      <Box component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-     
-    </Box>
+      </Container>
+    </AppBar>
   );
 }
+export default NavBar;
