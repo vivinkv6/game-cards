@@ -26,7 +26,7 @@ export const categoryData: {
     id: 4,
     name: "Shooter",
     slug: "shooter",
-    url: "https://images.app.goo.gl/E5JQBmHQm26gaoAC7",
+    url: "https://e7.pngegg.com/pngimages/762/454/png-clipart-soldier-figure-alliance-of-valiant-arms-battlefield-3-ijji-video-game-first-person-shooter-soldiers-game-people-thumbnail.png",
   },
   {
     id: 5,
@@ -104,24 +104,24 @@ export const categoryData: {
     id: 17,
     name: "Party",
     slug: "party",
-    url: "https://images.app.goo.gl/HAFDDqpQhTjFDZvH7",
+    url: "https://d.player.one/en/full/204574/good-news.webp?w=736&f=a15819cf6d664b8cc46d6ea0db51661b",
   },
   {
     id: 18,
     name: "Open World",
     slug: "open-world",
-    url: "https://images.app.goo.gl/HAFDDqpQhTjFDZvH7",
+    url: "https://www.pcgamesn.com/wp-content/uploads/2020/01/open-world-games-skyrim.jpg",
   },
   {
     id: 19,
     name: "Sandbox",
     slug: "sandbox",
-    url: "https://images.app.goo.gl/HAFDDqpQhTjFDZvH7",
+    url: "https://hips.hearstapps.com/hmg-prod/images/minecraft-1576612623.jpg",
   },
   {
     id: 20,
     name: "Music",
     slug: "music",
-    url: "https://images.app.goo.gl/HAFDDqpQhTjFDZvH7",
+    url: "https://e7.pngegg.com/pngimages/334/118/png-clipart-music-music-logo-texture-comics-thumbnail.png",
   },
 ];

@@ -10,29 +10,30 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 
-
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
 
-
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-
-
   return (
-    <AppBar style={{backgroundColor:'#303030'}}>
+    <AppBar style={{ backgroundColor: "#303030" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        <img src="https://cdn4.vectorstock.com/i/1000x1000/63/08/ninja-gaming-joystick-sport-logo-icon-vector-34196308.jpg" width={50} height={50} style={{marginRight:'10px',borderRadius:'50px'}} alt="" />
+          <img
+            src="https://cdn4.vectorstock.com/i/1000x1000/63/08/ninja-gaming-joystick-sport-logo-icon-vector-34196308.jpg"
+            width={50}
+            height={50}
+            style={{ marginRight: "10px", borderRadius: "50px" }}
+            alt=""
+          />
           <Typography
             variant="h6"
             noWrap
@@ -48,7 +49,7 @@ function NavBar() {
               textDecoration: "none",
             }}
           >
-            Game Cards
+            Game Library
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -81,17 +82,17 @@ function NavBar() {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-               <Typography textAlign="center">Category</Typography>
+                <Typography textAlign="center">Category</Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-               <Typography textAlign="center">Platform</Typography>
+                <Typography textAlign="center">Platform</Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-               <Typography textAlign="center">Search</Typography>
+                <Typography textAlign="center">Search</Typography>
               </MenuItem>
             </Menu>
           </Box>
-          
+
           <Typography
             variant="h5"
             noWrap
@@ -101,8 +102,8 @@ function NavBar() {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              position:'absolute',
-              left:'7rem',
+              position: "absolute",
+              left: "7rem",
               fontFamily: "monospace",
               fontWeight: "bold",
               letterSpacing: ".3rem",
@@ -110,7 +111,7 @@ function NavBar() {
               textDecoration: "none",
             }}
           >
-            Game Cards
+            Game Library
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
