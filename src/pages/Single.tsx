@@ -3,16 +3,19 @@ import { useParams } from "react-router-dom";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
+import ReactPlayer from "react-player";
 
 function Single() {
   const { id } = useParams();
   const [data, setData] = useState<{
     background_image_additional: string;
     description_raw: string;
-    name:string;
+    name: string;
   }>();
   const [img, setImg] = useState<{ image: string; id: number }[]>([]);
+  const [video, setVideo] = useState<string>("");
   useEffect(() => {
+    //fetch game detail
     const fetchData = async () => {
       await fetch(
         `https://api.rawg.io/api/games/${id}?key=${
@@ -26,6 +29,7 @@ function Single() {
         })
         .catch((err) => console.log(err));
     };
+    //fetch specific game image
     const fetchImg = async () => {
       await fetch(
         `https://api.rawg.io/api/games/${id}/screenshots?key=${
@@ -38,6 +42,23 @@ function Single() {
         })
         .catch((err) => console.log(err));
     };
+
+    //fetch trailer
+    const fetchTrailer = async () => {
+      await fetch(
+        `https://api.rawg.io/api/games/${id}/movies?key=${
+          import.meta.env.VITE_API_KEY
+        }`
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          setVideo(result?.results[0]?.data?.max);
+          console.log(result);
+        })
+        .catch((err) => console.log(err));
+    };
+
+    fetchTrailer();
     fetchImg();
     fetchData();
   }, [id]);
@@ -45,17 +66,17 @@ function Single() {
   return (
     <>
       <div className="banner" style={{ backgroundColor: "#1a1a1a" }}>
-        <div className="img" >
+        <div className="img">
           <CardMedia
             style={{
               width: "100%",
-              marginTop:'55px'
+              marginTop: "55px",
             }}
             component="img"
             sx={{ width: 150 }}
             image={data?.background_image_additional}
           />
-           <Typography
+          <Typography
             component="h2"
             style={{
               fontWeight: "bolder",
@@ -64,12 +85,17 @@ function Single() {
               color: "#757574",
               marginTop: "20px",
               marginBottom: "20px",
-              marginLeft:'10px',
+              marginLeft: "10px",
               lineHeight: "30px",
             }}
           >
             {data?.name}
           </Typography>
+          {video && (
+            
+              <ReactPlayer url={video} controls={true} />
+           
+          )}
           <Typography
             component="p"
             style={{

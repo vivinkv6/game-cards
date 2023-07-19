@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 function HomePage() {
   const [data, setData] = useState<any[]>();
   const [pages, setPages] = useState<number>(1);
-
   useEffect(() => {
     console.log(pages);
 
@@ -24,6 +23,10 @@ function HomePage() {
     };
     fetchData();
   }, [pages]);
+
+  console.log(data);
+  
+
   return (
     <div style={{ backgroundColor: "#1a1a1a" }}>
       {data?.map((value) => {
