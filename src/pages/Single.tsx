@@ -91,11 +91,13 @@ function Single() {
           >
             {data?.name}
           </Typography>
+          
           {video && (
             
-              <ReactPlayer url={video} controls={true} />
+              <ReactPlayer url={video} controls={true} style={{maxWidth:'100%'}}  />
            
           )}
+          
           <Typography
             component="p"
             style={{

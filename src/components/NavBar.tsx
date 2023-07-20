@@ -15,12 +15,15 @@ function NavBar() {
     null
   );
 
+
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+
   };
 
   return (
@@ -64,7 +67,7 @@ function NavBar() {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Category</Typography>
+              <Typography textAlign="center">Category</Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Platform</Typography>
@@ -92,7 +95,7 @@ function NavBar() {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              Search
+         Search
             </Button>
           </Box>
         </Toolbar>

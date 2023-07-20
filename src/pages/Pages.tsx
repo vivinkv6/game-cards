@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import Cards from "../components/Cards";
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-function HomePage() {
+function Pages() {
+
+    const {page}=useParams();
+
   const [data, setData] = useState<any[]>();
-  const [pages, setPages] = useState<number>(2);
+  const [pages, setPages] = useState<number>(Number(page));
   useEffect(() => {
     console.log(pages);
 
@@ -13,7 +16,7 @@ function HomePage() {
       await fetch(
         `https://api.rawg.io/api/games?key=${
           import.meta.env.VITE_API_KEY
-        }&page=${pages}`
+        }&page=${page}`
       )
         .then((res) => res.json())
         .then((result) => {
@@ -38,7 +41,7 @@ function HomePage() {
       })}
       <center style={{ marginTop: "20px", marginBottom: "20px" }}>
         <Button
-          style={{ color: "white", backgroundColor: "#2171c2" }}
+          style={{  backgroundColor: "#2171c2" }}
           onClick={() => {
             if (pages <= 1) {
               setPages(1);
@@ -48,7 +51,7 @@ function HomePage() {
             console.log(pages);
           }}
         >
-          Prev
+        <Link style={{textDecoration:'none',color: "white"}} to={`/pages/${pages}`}> Prev</Link> 
         </Button>{" "}
         
         <Button
@@ -58,7 +61,7 @@ function HomePage() {
             console.log(pages);
           }}
         >
-          <Link to={`/pages/${pages}`}>  Next</Link>
+          <Link style={{textDecoration:'none',color: "white",}} to={`/pages/${pages}`}>  Next</Link>
         
         </Button>
       </center>
@@ -66,4 +69,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default Pages;
