@@ -2,14 +2,17 @@ import { useEffect, useState } from "react";
 import Cards from "../components/Cards";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import Loader from "../components/Loader";
 
 function HomePage() {
   const [data, setData] = useState<any[]>();
-  const [pages, setPages] = useState<number>(2);
+  const [pages, setPages] = useState<number>(1);
+  const [loading,setLoading]=useState<boolean>(false);
   useEffect(() => {
     console.log(pages);
 
     const fetchData = async () => {
+      setLoading(true);
       await fetch(
         `https://api.rawg.io/api/games?key=${
           import.meta.env.VITE_API_KEY
@@ -20,6 +23,7 @@ function HomePage() {
           setData(result.results);
         })
         .catch((err) => console.log(err));
+        setLoading(false);
     };
     fetchData();
   }, [pages]);
@@ -28,7 +32,9 @@ function HomePage() {
   
 
   return (
+    
     <div style={{ backgroundColor: "#1a1a1a" }}>
+      {loading && <><Loader/><Loader/><Loader/></>}
       {data?.map((value) => {
         return (
           <Link to={`/${value.id}`} style={{ textDecoration: "none" }}>

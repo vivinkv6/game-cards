@@ -30,6 +30,7 @@ function NavBar() {
     <AppBar style={{ backgroundColor: "#303030" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          <a href="/">
           <img
             src="https://cdn4.vectorstock.com/i/1000x1000/63/08/ninja-gaming-joystick-sport-logo-icon-vector-34196308.jpg"
             width={50}
@@ -37,6 +38,7 @@ function NavBar() {
             style={{ marginRight: "10px", borderRadius: "50px" }}
             alt=""
           />
+          </a>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -67,13 +69,14 @@ function NavBar() {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">Category</Typography>
+              <Typography textAlign="center">
+               <a href="/category" style={{textDecoration:'none',color:'black'}}>Category</a> </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Platform</Typography>
+                <Typography textAlign="center"> <a href="/platform" style={{textDecoration:'none',color:'black'}}>Platform</a> </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Search</Typography>
+                <Typography textAlign="center">   <a href="/search" style={{textDecoration:'none',color:'black'}}> Search</a></Typography>
               </MenuItem>
             </Menu>
           </Box>
@@ -83,19 +86,19 @@ function NavBar() {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              Category
+             <a href="/category" style={{textDecoration:'none',color:'white'}}>  Category</a>
             </Button>
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              Platform
+             <a href="/platform" style={{textDecoration:'none',color:'white'}}>Platform</a>
             </Button>
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-         Search
+        <a href="/search" style={{textDecoration:'none',color:'white'}}> Search</a>
             </Button>
           </Box>
         </Toolbar>
