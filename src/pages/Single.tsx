@@ -70,7 +70,7 @@ function Single() {
           <CardMedia
             style={{
               width: "100%",
-              marginTop: "55px",
+              marginTop: "57px",
             }}
             component="img"
             sx={{ width: 150 }}
@@ -86,18 +86,19 @@ function Single() {
               marginTop: "20px",
               marginBottom: "20px",
               marginLeft: "10px",
-              lineHeight: "30px",
             }}
           >
             {data?.name}
           </Typography>
-          
+
           {video && (
-            
-              <ReactPlayer url={video} controls={true} style={{maxWidth:'100%'}}  />
-           
+            <ReactPlayer
+              url={video}
+              controls={true}
+              style={{ maxWidth: "100%" }}
+            />
           )}
-          
+
           <Typography
             component="p"
             style={{
