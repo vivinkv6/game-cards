@@ -19,6 +19,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/pages/:page" element={<Pages/>}/>
           <Route path="/:id" element={<Single />} />
+          <Route path="/search/:id" element={<Single />} />
           <Route path="/platform" element={<PlatformPage />} />
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/search" element={<Search/>} />
