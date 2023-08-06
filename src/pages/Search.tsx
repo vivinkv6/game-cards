@@ -36,6 +36,7 @@ export default function Search() {
               maxWidth: "268px",
               borderRadius: "6px",
               border: "none",
+              fontSize:'18px'
             }}
             list="list"
             value={searchItem}
@@ -46,7 +47,7 @@ export default function Search() {
             {gamesList.map((value, index) => {
               return (
                 <div key={index}>
-                  <option value={value}></option>
+                  <option value={value} ></option>
                 </div>
               );
             })}
