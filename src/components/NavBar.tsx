@@ -10,6 +10,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { NavLink, Outlet } from "react-router-dom";
+import logo from '../assets/logo.jpg';
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -31,7 +32,7 @@ function NavBar() {
           <Toolbar disableGutters>
             <NavLink to="/">
               <img
-                src="https://cdn4.vectorstock.com/i/1000x1000/63/08/ninja-gaming-joystick-sport-logo-icon-vector-34196308.jpg"
+                src={logo}
                 width={50}
                 height={50}
                 style={{ marginRight: "10px", borderRadius: "50px" }}
