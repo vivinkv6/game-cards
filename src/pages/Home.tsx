@@ -3,7 +3,6 @@ import Cards from "../components/Cards";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
-
 function HomePage() {
   const [data, setData] = useState<any[]>();
   const [pages, setPages] = useState<number>(1);
@@ -15,7 +14,7 @@ function HomePage() {
       setLoading(true);
       await fetch(
         `https://api.rawg.io/api/games?key=${
-          import.meta.env.VITE_API_KEY
+          import.meta.env.VITE_API_KEY 
         }&page=${pages}`
       )
         .then((res) => res.json())
@@ -38,6 +37,7 @@ function HomePage() {
       {data?.map((value) => {
         return (
           <Link to={`/${value.id}`} style={{ textDecoration: "none" }}>
+
             <Cards list={value} />
           </Link>
         );

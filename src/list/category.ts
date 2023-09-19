@@ -48,8 +48,8 @@ export const categoryData: {
   },
   {
     id: 8,
-    name: "Massively Multiplayer",
-    slug: "massively-multiplayer",
+    name: "Multiplayer",
+    slug: "multiplayer",
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVhI7mG9DuU62QzfHVzHiSEtK10ePWbydpl7yZnXkxFBbd9fapbpc5RKolQFahfqyBc3E&usqp=CAU",
   },
   {

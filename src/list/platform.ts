@@ -81,17 +81,5 @@ export const platformData: {
     name: "GameCube",
     slug: "gamecube",
     url: "https://w7.pngwing.com/pngs/793/846/png-transparent-gamecube-controller-nintendo-64-playstation-2-doshin-the-giant-nintendo-purple-angle-retro-thumbnail.png",
-  },
-  {
-    id: 14,
-    name: "Sega Genesis",
-    slug: "sega-genesis",
-    url: "",
-  },
-  {
-    id: 15,
-    name: "Amazon Luna",
-    slug: "amazon-luna",
-    url: "",
-  },
+  }
 ];

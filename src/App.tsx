@@ -8,6 +8,8 @@ import Single from "./pages/Single";
 import Search from "./pages/Search";
 import NotFound from "./pages/NotFound";
 import Pages from "./pages/Pages";
+import EachPlatform from "./pages/EachPlatform";
+import EachCategory from "./pages/EachCategory";
 
 
 function App() {
@@ -21,7 +23,9 @@ function App() {
           <Route path="/:id" element={<Single />} />
           <Route path="/search/:id" element={<Single />} />
           <Route path="/platform" element={<PlatformPage />} />
+          <Route path="/platform/:platform" element={<EachPlatform/>} />
           <Route path="/category" element={<CategoryPage />} />
+          <Route path="/category/:category" element={<EachCategory/>} />
           <Route path="/search" element={<Search/>} />
           <Route path="*" element={<NotFound/>}/>
         </Routes>
