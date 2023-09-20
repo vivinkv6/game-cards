@@ -29,9 +29,9 @@ export default function Cards(props: CardsProps) {
             display: "flex",
             flexDirection: "row",
             flexWrap: "wrap",
-            bgcolor: "#969696",
+            bgcolor: "rgba(22, 21, 21, 1)",
             marginTop: "4rem",
-            boxShadow: "5px 5px 50px #737373",
+            boxShadow: "5px 5px 50px rgba(71, 71, 71, 0.91)",
             borderRadius: "5px",
           }}
           key={props.list.id}
@@ -72,7 +72,7 @@ export default function Cards(props: CardsProps) {
                   margin: "10px",
                 }}
               >
-                {props.list.rating}
+               {props.list.rating}
               </Typography>
               <Typography
                 variant="subtitle1"
