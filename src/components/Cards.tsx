@@ -23,7 +23,7 @@ export default function Cards(props: CardsProps) {
 
   return (
     <Grid container spacing={2} justifyContent={"space-around"}>
-      <Grid item md={4} xl={5}>
+      <Grid item md={4} xl={5} style={{position:'relative'}}>
         <Card
           sx={{
             display: "flex",
@@ -36,6 +36,27 @@ export default function Cards(props: CardsProps) {
           }}
           key={props.list.id}
         >
+          <Typography
+            component="div"
+            variant="h5"
+            style={{
+              position:"absolute",
+              top:"5rem",
+              right:'1rem',
+              fontWeight: "bolder",
+              fontFamily: "monospace",
+              textAlign: "right",
+              color: "black",
+              backgroundColor: "rgba(236, 239, 225, 1)",
+              display: "inline",
+              border: "5px solid rgba(200, 255, 0, 1)",
+              borderRadius: "100%",
+              margin: "10px",
+              padding: "10px 20px",
+            }}
+          >
+            {Math.round(props.list.rating)}
+          </Typography>
           <CardMedia
             style={{ width: "100%" }}
             component="img"
@@ -57,26 +78,15 @@ export default function Cards(props: CardsProps) {
               >
                 {props.list.name}
               </Typography>
-              <Typography
-                component="div"
-                variant="h5"
-                style={{
-                  fontWeight: "bolder",
-                  fontFamily: "monospace",
-                  textAlign: "right",
-                  color: "white",
-                  backgroundColor: "#616161",
-                  display: "inline",
-                  padding: "8px",
-                  borderRadius: "20px",
-                  margin: "10px",
-                }}
-              >
-               {props.list.rating}
-              </Typography>
+
               <Typography
                 variant="subtitle1"
-                style={{ color: "#737373", marginTop: "30px",display:'flex',flexWrap:'wrap' }}
+                style={{
+                  color: "#737373",
+                  marginTop: "30px",
+                  display: "flex",
+                  flexWrap: "wrap",
+                }}
                 component="div"
               >
                 {props.list.genres.map((value) => {
@@ -87,8 +97,7 @@ export default function Cards(props: CardsProps) {
                         backgroundColor: "#916060",
                         borderRadius: "30px",
                         padding: "10px",
-                        margin:'10px',
-                        
+                        margin: "10px",
                       }}
                     >
                       {value.name}{" "}

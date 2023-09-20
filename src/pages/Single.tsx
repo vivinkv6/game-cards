@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Grid } from "@mui/material";
+import { Grid, Rating } from "@mui/material";
 import ReactPlayer from "react-player";
 
 function Single() {
@@ -11,6 +11,7 @@ function Single() {
     background_image_additional: string;
     description_raw: string;
     name: string;
+    rating_top: number;
   }>();
   const [img, setImg] = useState<{ image: string; id: number }[]>([]);
   const [video, setVideo] = useState<string>("");
@@ -76,67 +77,71 @@ function Single() {
             sx={{ width: 150 }}
             image={data?.background_image_additional}
           />
-          <Typography
-            component="h2"
+          <div
             style={{
-              fontWeight: "bolder",
-              fontFamily: "monospace",
-              fontSize: "40px",
-              color: "#757574",
-              marginTop: "20px",
-              marginBottom: "20px",
-              marginLeft: "10px",
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              alignItems: "center",
             }}
           >
-            {data?.name}
-          </Typography>
-
+            <Typography
+              component="h2"
+              style={{
+                fontWeight: "bolder",
+                fontFamily: "monospace",
+                fontSize: "40px",
+                color: "#757574",
+                marginLeft: "1rem",
+              }}
+            >
+              {data?.name}
+            </Typography>
+            {data?.rating_top && (
+              <Typography
+                style={{
+                  marginLeft: "1rem",
+                }}
+              >
+                <Rating
+                  name="read-only"
+                  value={data?.rating_top}
+                  readOnly
+                  size="large"
+                />
+              </Typography>
+            )}
+          </div>
           {video && (
             <ReactPlayer
               url={video}
               controls={true}
-              style={{ maxWidth: "100%" }}
+              style={{ minWidth: "100%",maxWidth:"100%" }}
             />
           )}
 
           <Typography
             component="p"
             style={{
-              fontWeight: "bolder",
               fontFamily: "monospace",
               fontSize: "20px",
               color: "#757574",
               margin: "10px",
-              lineHeight: "30px",
             }}
           >
             {data?.description_raw}
           </Typography>
-          <Typography
-            component="h3"
-            variant="h3"
-            style={{
-              fontWeight: "bolder",
-              fontFamily: "serif",
-              fontSize: "50px",
-              color: "#a6a6a6",
-              marginBottom: "50px",
-              marginTop: "5%",
-              marginLeft: "7px",
-              lineHeight: "30px",
-            }}
-          >
-            Gallery
-          </Typography>
+          
           <Grid
             container
             spacing={3}
             overflow={"hidden"}
             justifyContent={"space-around"}
+            style={{marginTop:"3rem"}}
           >
             {img.map((value) => {
               return (
-                <Grid item md={4}>
+                <Grid item md={4} >
                   <CardMedia
                     style={{ width: "100%" }}
                     component="img"
