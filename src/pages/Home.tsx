@@ -3,10 +3,13 @@ import Cards from "../components/Cards";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
+// import ReactPaginate from "react-paginate";
+
 function HomePage() {
   const [data, setData] = useState<any[]>();
   const [pages, setPages] = useState<number>(1);
   const [loading,setLoading]=useState<boolean>(false);
+  let count:number=0;
   useEffect(() => {
     console.log(pages);
 
@@ -19,6 +22,9 @@ function HomePage() {
       )
         .then((res) => res.json())
         .then((result) => {
+          count=result.count;
+          console.log(count);
+          
           setData(result.results);
         })
         .catch((err) => console.log(err));
@@ -54,7 +60,7 @@ function HomePage() {
             console.log(pages);
           }}
         >
-          Prev
+          <Link style={{textDecoration:'none',color: "white",}} to={`/pages/${pages}`}>Prev</Link>
         </Button>{" "}
         
         <Button
@@ -64,9 +70,11 @@ function HomePage() {
             console.log(pages);
           }}
         >
-          <Link to={`/pages/${pages}`}>  Next</Link>
+          <Link style={{textDecoration:'none',color: "white",}} to={`/pages/${pages}`}>  Next</Link>
         
         </Button>
+        {/* <Pagination count={count} color="secondary"/> */}
+        {/* <ReactPaginate pageCount={count}  /> */}
       </center>
     </div>
   );
