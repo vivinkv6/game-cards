@@ -4,6 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
+import styles from "./cards.module.css";
 
 type CardsProps = {
   list: {
@@ -23,7 +24,7 @@ export default function Cards(props: CardsProps) {
 
   return (
     <Grid container spacing={2} justifyContent={"space-around"}>
-      <Grid item md={4} xl={5} style={{position:'relative'}}>
+      <Grid item md={4} xl={5} style={{ position: "relative" }}>
         <Card
           sx={{
             display: "flex",
@@ -40,9 +41,9 @@ export default function Cards(props: CardsProps) {
             component="div"
             variant="h5"
             style={{
-              position:"absolute",
-              top:"5rem",
-              right:'1rem',
+              position: "absolute",
+              top: "5rem",
+              right: "1rem",
               fontWeight: "bolder",
               fontFamily: "monospace",
               textAlign: "right",
@@ -58,6 +59,7 @@ export default function Cards(props: CardsProps) {
             {Math.round(props.list.rating)}
           </Typography>
           <CardMedia
+            className={styles.cardImage}
             style={{ width: "100%" }}
             component="img"
             sx={{ width: 150 }}

@@ -1,0 +1,4 @@
+.cardImage:hover{
+    filter:brightness(0.6);
+    transition: 1.5s ease;
+}
