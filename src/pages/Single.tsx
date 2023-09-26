@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Grid, Rating } from "@mui/material";
-import ReactPlayer from "react-player";
+
+import VideoModal from "../components/VideoModal";
 
 function Single() {
   const { id } = useParams();
@@ -15,6 +16,8 @@ function Single() {
   }>();
   const [img, setImg] = useState<{ image: string; id: number }[]>([]);
   const [video, setVideo] = useState<string>("");
+
+
   useEffect(() => {
     //fetch game detail
     const fetchData = async () => {
@@ -77,15 +80,7 @@ function Single() {
             sx={{ width: 150 }}
             image={data?.background_image_additional}
           />
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <Typography
+           <Typography
               component="h2"
               style={{
                 fontWeight: "bolder",
@@ -97,6 +92,16 @@ function Single() {
             >
               {data?.name}
             </Typography>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+           
+            <VideoModal  video={video} />
             {data?.rating_top && (
               <Typography
                 style={{
@@ -112,13 +117,8 @@ function Single() {
               </Typography>
             )}
           </div>
-          {video && (
-            <ReactPlayer
-              url={video}
-              controls={true}
-              style={{ minWidth: "100%",maxWidth:"100%" }}
-            />
-          )}
+
+         
 
           <Typography
             component="p"
@@ -131,17 +131,17 @@ function Single() {
           >
             {data?.description_raw}
           </Typography>
-          
+
           <Grid
             container
             spacing={3}
             overflow={"hidden"}
             justifyContent={"space-around"}
-            style={{marginTop:"3rem"}}
+            style={{ marginTop: "3rem" }}
           >
             {img.map((value) => {
               return (
-                <Grid item md={4} >
+                <Grid item md={4}>
                   <CardMedia
                     style={{ width: "100%" }}
                     component="img"
